@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Loading Ring Animation Effects</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+        .ring{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 150px;
+            background: transparent;
+            border: 3px solid #ebe7e7;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 150px;
+            font-family: sans-serif;
+            font-size: 20px;
+            
+            color: #ff00ea;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #ff00ea;
+            box-shadow: 0 0 20px rgba(172, 171, 171, 0.5);
+        } 
+        .ring::before{
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            border-top: 3px solid #ff00ea;
+            border-right: 3px solid #ff00ea;
+            border-radius: 50%;
+            animation: animateCircle 2s linear infinite;
+        }
+        span{
+            display: block;
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 50%;
+            width: 50%;
+            height: 4px;
+            background: transparent;
+            transform-origin: left;
+            animation: animate 2s linear infinite;
+        }
+        span::before{
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            background: #ff00ea;
+            top: -8px;
+            right: -8px;
+            box-shadow: 0 0 20px #ff00ea;
+        }
+        @keyframes animateCircle{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes animate{
+            0%{
+                transform: rotate(45deg);
+            }
+            100%{
+                transform: rotate(405deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ring">
+        LOADING
+        <span></span>
+    </div>
+</body>
+</html>
